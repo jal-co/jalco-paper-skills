@@ -6,6 +6,25 @@ The workflow is a loop: maintain the real system, start with an actual component
 
 Use a skill's name in the request to your agent. Examples below use illustrative source paths and component names, not a shared demo-file link.
 
+## What to use when
+
+**Start with `paper-ds-manage`.** Describe the task and it routes to the right skill. Use a focused skill directly when you already know the job.
+
+| Job | Skill |
+| --- | --- |
+| First connection | [paper-ds-setup](#paper-ds-setup) |
+| Token sync or drift | [paper-ds-tokens](#paper-ds-tokens) |
+| Real component imports or refreshes | [paper-ds-components](#paper-ds-components) |
+| Alternatives or Current/Proposed | [paper-ds-options](#paper-ds-options) |
+| Changes to selected nodes after feedback | [paper-ds-iterate](#paper-ds-iterate) |
+| Verify one design in context | [paper-ds-review](#paper-ds-review) |
+| Adopt an approved revision and optionally implement it | [paper-ds-land](#paper-ds-land) |
+| Page organization, naming, and archives | [paper-ds-pages](#paper-ds-pages) |
+
+The usual sequence is **Manage → options → iterate → review → land**. Setup happens once. Refresh tokens and components when needed, not before every task. A selected option is still a draft until approved; approval is still separate from verified implementation.
+
+The component, block, and page option skills are format helpers. The canvas skill is shared tool guidance. The entry skills load these for you; you generally do not invoke them directly.
+
 ## paper-ds-manage
 
 [Skill](../skills/paper-ds-manage/SKILL.md)

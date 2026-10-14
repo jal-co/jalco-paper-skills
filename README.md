@@ -39,6 +39,8 @@ Connect the agent to the Paper MCP separately. Give it access to the project's s
 
 ## Start working
 
+**Use `paper-ds-manage` by default.** Describe what you want to do; it routes to the right skill. You can also call a focused skill directly.
+
 > Use paper-ds-manage for our Notice component. Read the current implementation and my selected Paper nodes. Preserve my edits, compare only what needs a decision, and show the survivors in context.
 
 For a first connection:
@@ -53,23 +55,23 @@ To finish:
 
 > Adopt Notice r3 with paper-ds-land and implement it in the existing component. Verify its real states and dark theme. Do not push or publish anything.
 
-## Skills
+## What to use when
 
-| Skill | Its part of the loop |
+| You want to | Use |
 | --- | --- |
-| [paper-ds-manage](docs/usage.md#paper-ds-manage) | Entry point for ongoing work and routing |
-| [paper-ds-setup](docs/usage.md#paper-ds-setup) | Connect sources and create the maintained workspace |
-| [paper-ds-tokens](docs/usage.md#paper-ds-tokens) | Compare drift and snapshot shared token changes |
-| [paper-ds-components](docs/usage.md#paper-ds-components) | Import or refresh actual component baselines |
-| [paper-ds-options](docs/usage.md#paper-ds-options) | Choose and draw the right comparison |
-| [paper-ds-options-component](docs/usage.md#paper-ds-options-component) | Component-sized comparisons |
-| [paper-ds-options-block](docs/usage.md#paper-ds-options-block) | Section-sized comparisons |
-| [paper-ds-options-page](docs/usage.md#paper-ds-options-page) | Page and journey comparisons |
-| [paper-ds-iterate](docs/usage.md#paper-ds-iterate) | Bounded iterations after feedback |
-| [paper-ds-review](docs/usage.md#paper-ds-review) | Verify the selected revision in context |
-| [paper-ds-land](docs/usage.md#paper-ds-land) | Adopt approved artwork and verify requested code changes |
-| [paper-ds-pages](docs/usage.md#paper-ds-pages) | Keep pages, names, canonical nodes, and archives useful |
-| [paper-ds-canvas](docs/usage.md#paper-ds-canvas) | Shared Paper tool and rendering rules |
+| Manage ongoing work without choosing a skill yourself | [paper-ds-manage](docs/usage.md#paper-ds-manage) |
+| Connect your DS to Paper for the first time | [paper-ds-setup](docs/usage.md#paper-ds-setup) |
+| Sync colors, fonts, spacing, radii, or check drift | [paper-ds-tokens](docs/usage.md#paper-ds-tokens) |
+| Bring in real components and their states | [paper-ds-components](docs/usage.md#paper-ds-components) |
+| Explore alternatives or compare Current/Proposed | [paper-ds-options](docs/usage.md#paper-ds-options) |
+| Refine specific nodes after feedback | [paper-ds-iterate](docs/usage.md#paper-ds-iterate) |
+| Check one design's states, widths, themes, and context | [paper-ds-review](docs/usage.md#paper-ds-review) |
+| Adopt an approved revision and optionally implement it | [paper-ds-land](docs/usage.md#paper-ds-land) |
+| Organize pages, rename layers, or archive rounds | [paper-ds-pages](docs/usage.md#paper-ds-pages) |
+
+You normally do not call the format helpers directly: [component](docs/usage.md#paper-ds-options-component), [block](docs/usage.md#paper-ds-options-block), and [page](docs/usage.md#paper-ds-options-page) choose the sheet format. [paper-ds-canvas](docs/usage.md#paper-ds-canvas) supplies shared Paper tool rules.
+
+The usual sequence is **Manage → options → iterate → review → land**. Skip stages the task does not need. Setup happens once; tokens and components get refreshed when needed. Selecting an option does not mark it approved or implemented.
 
 ## Versions
 
