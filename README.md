@@ -1,10 +1,16 @@
 # Manage a design system and iterate on components with Paper
 
+<a href="LICENSE"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/license-MIT.svg?variant=secondary&amp;size=xs&amp;mode=dark" /><img alt="MIT license" src="https://shieldcn.dev/badge/license-MIT.svg?variant=secondary&amp;size=xs&amp;mode=light" /></picture></a>
+<a href="docs/usage.md"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/skills-13.svg?variant=secondary&amp;size=xs&amp;mode=dark" /><img alt="13 skills" src="https://shieldcn.dev/badge/skills-13.svg?variant=secondary&amp;size=xs&amp;mode=light" /></picture></a>
+<a href="CHANGELOG.md"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/version-0.2.0%20unreleased.svg?variant=secondary&amp;size=xs&amp;mode=dark" /><img alt="Version 0.2.0 unreleased" src="https://shieldcn.dev/badge/version-0.2.0%20unreleased.svg?variant=secondary&amp;size=xs&amp;mode=light" /></picture></a>
+
 Skills that encode an ongoing way of working in [Paper](https://paper.design): keep the real system available, start from an actual component, compare what matters, refine selected nodes, verify the result in context, and fold approved decisions back into the system and code.
 
 [Read the illustrated workflow](docs/usage.md)
 
 [Versioning the work](docs/versioning.md)
+
+[Open the Paper demo](https://app.paper.design/file/01M4YB3J8ZFB5RE8JA0T21YQV8/p-3-0) / [Demo images and source notes](docs/demo.md)
 
 ![Three Alert action-placement comparisons using default shadcn styling in light and dark](docs/images/shadcn-alert-options.jpg)
 
@@ -103,7 +109,7 @@ Historical frames still follow live tokens. Saved snapshots and screenshots pres
 
 Edit TEMPLATE frames to change future sheets. Spacing, type, and radii reference your own system. Optional slots can be removed. The agent preserves your edits and checkpoints them before another round replaces them.
 
-Review sheets show the subject only. Critique stays in chat or native comments, never in drawn cards, pins, or finding lists. Private demo links are not included.
+Review sheets show the subject only. Critique stays in chat or native comments, never in drawn cards, pins, or finding lists. The linked demo and its screenshots are approved for sharing. Unrelated private files and project histories stay private.
 
 ## Verification status
 

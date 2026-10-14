@@ -60,7 +60,7 @@ It is the third captured Alert design revision, not shadcn version 3:
 
 The action label and message stayed fixed during the structural comparison. Canonical Alert still points to r1. r3 has no recorded approval or verified implementation.
 
-This run exercised source lookup, static specimens, local checkpoints, and layout review. It did not test interaction behavior or complete the adoption-to-code loop. The private Paper file is not linked.
+This run exercised source lookup, static specimens, local checkpoints, and layout review. It did not test interaction behavior or complete the adoption-to-code loop. [Open the approved Paper demo](https://app.paper.design/file/01M4YB3J8ZFB5RE8JA0T21YQV8/p-3-0). The [image index](demo.md) lists screenshots from that copy; the original file remains private.
 
 ## paper-ds-manage
 
@@ -254,4 +254,4 @@ One-theme systems use one stage per option. A dark-only `--color-ground` is dark
 
 Read [versioning](versioning.md). Component revisions, manifest schema, and package releases have different meanings. Current artwork, approved design, and verified implementation are tracked separately. Shared token changes flag affected subjects for review.
 
-The screenshots show the source-based shadcn run, not a shipped application. The billing screen is a fixture assembled from imported components. Adoption, implementation fidelity, historical restore, reverse sync, Figma import, and a full single-theme setup still need end-to-end testing. The private source Paper file is not linked.
+The screenshots show the source-based shadcn run, not a shipped application. The billing screen is a fixture assembled from imported components. Adoption, implementation fidelity, historical restore, reverse sync, Figma import, and a full single-theme setup still need end-to-end testing. Only the approved demo copy is linked. The original file and private project history remain excluded.
