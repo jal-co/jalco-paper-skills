@@ -7,6 +7,10 @@ description: Review one existing component, block or screen in Paper, drawn with
 
 Load `paper-ds-canvas`, then read `paper-ds.json`. A review looks at one thing. Use `paper-ds-options` when the user wants alternatives.
 
+## Select what to show
+
+Read `../paper-ds-options/references/comparisons.md`. A review of one subject uses only the checks that could change the verdict: states, long content, shipped themes, real widths, or context. A revision review also includes the actual Current version beside Proposed. Do not generate alternatives unless asked.
+
 ## Sheet
 
 Clone `Sheet Review` from TEMPLATE onto the subject's exploration page. Name it `Review <subject>`.

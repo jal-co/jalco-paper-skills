@@ -15,7 +15,7 @@ Run the `paper-ds-options` procedure. This skill sets the sheet format for block
 
 ## What a block option decides
 
-A block is a layout of parts. Each option changes at most two of these:
+For structural alternatives, each option changes at most two of these. For revisions, states, or responsive checks, use the fixed variables in the comparison guide instead:
 
 - Order of the parts
 - Grouping: one list, sections, tabs, columns

@@ -60,6 +60,10 @@ Every system carries two extra roles, in each theme it ships:
 
 The default hue is neon pink (OKLCH hue 355). Ask once whether the user wants another hue, but keep one rule: nothing but review uses it. If the system already uses pink for brand or status, pick a different hue for comments, because one color cannot mean both.
 
+## Comparing token choices
+
+Read `../paper-ds-options/references/comparisons.md` when choosing between token values. Use ramps for palette coverage, role tables for semantic mappings, and the same text-on-surface examples for contrast. Font choices need matched headings, paragraphs, controls, and numerals, not only large letter specimens.
+
 ## Generate
 
 1. Ask for the brand color, a mood in one word, and whether there is a font preference.

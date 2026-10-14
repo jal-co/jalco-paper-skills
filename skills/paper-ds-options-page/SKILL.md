@@ -15,14 +15,14 @@ Run the `paper-ds-options` procedure. This skill sets the sheet format for pages
 
 ## What a page option decides
 
-A page option is a direction, not a variation. Each option answers a different question about the page:
+For an open page exploration, each option is a direction and answers a different question about the page. Current/Proposed, state, and responsive checks keep the page direction fixed instead:
 
 - What the page leads with: the usage, the plan, the money owed, the next action
 - How the page is divided: one column, two, sections, tabs
 - What it asks the user to do first
 - What it hides
 
-Never make two options that lead with the same thing. Name each option for its lead: "Usage first", "Projects first".
+For structural directions, do not make two options that lead with the same thing. Name them for their lead: "Usage first", "Projects first". Revisions use Current and Proposed instead.
 
 ## Scenario
 

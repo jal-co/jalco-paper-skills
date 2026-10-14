@@ -46,6 +46,10 @@ Sync from code with `paper-ds-tokens`, which maps the project's dark selector on
 
 Every system defines a `comment` role (neon pink by default) with `comment-subtle`, in every theme the product ships. It marks review only: pins, threads, highlights on feedback. Never use it for status, buttons or decoration, and never use pink anywhere else. That exclusivity is why a comment is findable on any screen.
 
+## Sharing
+
+Do not include private example-file URLs or IDs in public documentation, screenshots' captions, or generated examples. Use repo-local images for documentation. Share a user's working-file link only within their requested handoff, not as a reusable demo source.
+
 ## Reading back
 
 - A screenshot right after a write can be blank or stale. Call `get_tree_summary` on the node, then screenshot again. Never judge a write from a blank image.

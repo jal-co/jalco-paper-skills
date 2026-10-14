@@ -113,6 +113,26 @@ After feedback, ask for a narrower round:
 
 > Keep options 01 and 04. Show both inside our real dashboard, with a long value and an empty state. Leave the first round intact.
 
+## Choose the comparison
+
+The agent first identifies the decision, then picks a sheet. A component does not always need a grid of alternatives.
+
+| You want to know | Use |
+| --- | --- |
+| Which structure is better | Different directions with the same content |
+| Whether a revision improves the current UI | Current and Proposed side by side |
+| Whether a component handles its states | A state matrix, not extra directions |
+| Whether content breaks it | Normal, long, empty, or error examples of the same design |
+| Whether both themes work | Light/dark pairs, only for themes the product ships |
+| Whether it reflows correctly | The same design at real container widths |
+| Whether an icon or footer is needed | With and Without that one slot |
+| Whether it fits the product | The design inside its real surrounding screen |
+| Which colors or fonts work | Matched foundation specimens, including text on surfaces and realistic copy |
+| Whether a journey works | Ordered steps for the same goal |
+| Whether one design is ready | A single-subject review |
+
+The [comparison guide](../skills/paper-ds-options/references/comparisons.md) gives the layout and fixed variables for each. Templates supply the look; they do not dictate how many candidates to invent.
+
 ## paper-ds-options-component
 
 [Skill instructions](../skills/paper-ds-options-component/SKILL.md)

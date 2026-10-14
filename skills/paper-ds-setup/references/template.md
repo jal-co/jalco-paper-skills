@@ -25,6 +25,8 @@ Map each part to a step. The steps below are the Tailwind v4 names. Use the near
 
 Never write a pixel value for any of these when the system has a token. If the system has no spacing scale, run `paper-ds-tokens` first.
 
+The sheet type sets the subject size, not the comparison. Use `../../paper-ds-options/references/comparisons.md` to choose structural options, Current/Proposed, states, widths, theme pairs, or context. Remove unused option frames rather than inventing candidates to fill them.
+
 Stage sizes are content sizes, not spacing, so they stay in pixels:
 
 | Sheet | Options across | Stage |

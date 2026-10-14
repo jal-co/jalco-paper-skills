@@ -10,7 +10,7 @@ Run the `paper-ds-options` procedure. This skill sets the sheet format for compo
 ## Format
 
 - Clone `Sheet Component` from TEMPLATE. Three options across, 320 x 200 stages, one stage per theme per option. Spacing and type come from the system tokens (see `paper-ds-setup/references/template.md`).
-- Six options is two rows of three. Twelve is four rows.
+- Three is the row capacity, not a required count. Six directions use two rows. Current/Proposed uses two frames; state checks use the actual states.
 - Each stage shows the component at its real pixel size, centered. Never scale a component to fill the stage.
 
 ## What every stage shows
@@ -21,7 +21,7 @@ Add a state strip below the stage only when the choice depends on states. Show t
 
 ## Ideas to cover
 
-Each sheet draws from different structural axes. Cover at least four:
+For an open structural exploration, draw ideas from these axes. State checks, revisions, and responsive comparisons keep the design fixed instead:
 
 - Where the primary figure sits and how big it is
 - What carries the secondary data: text, glyph, bar, none

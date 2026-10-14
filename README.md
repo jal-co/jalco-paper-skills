@@ -45,6 +45,8 @@ Then ask for work:
 
 > Use paper-ds-options to show six alternatives for our inline notice. Use its real labels and our existing components.
 
+The agent chooses the comparison before drawing. A revision gets Current/Proposed; a behavior check gets states or real widths; an exploration gets distinct directions. See [choosing a comparison](docs/usage.md#choose-the-comparison).
+
 Or review one thing:
 
 > Use paper-ds-review to review this button. Show its long-label and disabled states in context. Keep findings in chat, not on the sheet.
