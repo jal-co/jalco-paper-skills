@@ -61,6 +61,8 @@ The next available revision is based on r1; counters do not move backward. Appro
 
 `VERSION`, all skill metadata, and `CHANGELOG.md` agree. A version file is not a release tag. Publishing a tag or release is a separate authorized action.
 
+Formal release versioning is still pending for the work on `main`. The current `0.2.0` remains unreleased until its metadata and release notes are checked and a version tag is explicitly authorized and published.
+
 While the package is pre-1.0, minor versions can add workflows or change the manifest contract. Patch versions fix instructions without changing the contract. Once stable at 1.0, incompatible contracts require a major version.
 
 The [agent versioning reference](../skills/paper-ds-manage/references/versioning.md) defines checkpoints and status rules. The [manifest example](../skills/paper-ds-manage/references/manifest-example.json) shows the initial schema 2 record without fabricated revision history.

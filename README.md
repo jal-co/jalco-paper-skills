@@ -101,6 +101,8 @@ These are local design revisions, not official shadcn releases or component vari
 
 Package version **0.2.0 is unreleased**. `VERSION`, skill metadata, and [CHANGELOG.md](CHANGELOG.md) track the package; they do not claim a Git tag exists.
 
+**Release versioning is still pending.** Publishing these changes to `main` is not a versioned release. Before releasing, verify that the version metadata and changelog agree, then create an explicitly approved version tag and release notes.
+
 Each project has a schema-versioned `paper-ds.json`. Each subject has its own numbered revisions, source evidence, saved artwork and token snapshots, approval status, and implemented revision. A selected draft is not approved; an approved design is not implemented.
 
 Historical frames still follow live tokens. Saved snapshots and screenshots preserve what a revision actually looked like. See [versioning](docs/versioning.md).
