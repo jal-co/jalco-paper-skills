@@ -1,71 +1,37 @@
-# Foundations page
+# Foundations as a maintained reference
 
-One artboard per foundation. Each can be linked, screenshotted and cloned alone, and an agent reads a small tree instead of 800 nodes.
+Build from the actual source, not a sample palette. Each topic gets its own artboard so it can be found, reused, and checked without reading the whole file.
 
-## Artboard frame
+## Layout
 
-- Name: `NN Title`, for example `01 Color roles`
-- Width 2480, height `fit-content`, fill `var(--ground)`, padding 64px 80px, flex column, gap 32px
-- Stacked down the page at `left: 0`, 80px apart, positions measured from screenshots
+Use the DS's spacing, type, radii, backgrounds, and text roles. Resolve the nearest existing layout steps; do not invent a fixed size scale during import. A compact title and one useful subtitle are enough. No decorative index rows, filled instruction banners, or large metadata panels.
 
-## Header
+Put artboards in a row with clear gaps and widths computed from their contents. The separate overview is 760px wide above the row, with no fill or padding. Clear its background with `background: none` and verify it. On the dark Paper canvas, use canvas text roles rather than light-system ink.
 
-Two lines at the top of every artboard. No index number, no rule, no box.
-
-- Title: 28px, weight 500, ink
-- One sentence below: 16px, muted, what the section governs
-
-## The overview has no background
-
-`00 Overview` has no fill on the artboard and none on anything inside it. Reason: a filled box reads as another component, and an overview frames the content.
-
-Paper's canvas is dark, so text on it uses the canvas roles, not ink or muted:
-
-- Title and body: `var(--canvas-text)`
-- Secondary lines: `var(--canvas-muted)`
-
-Create both tokens during setup, aliased to the lightest and a mid step of the neutral ramp. Ink on the dark canvas is unreadable.
-
-## Artboards, in order
+## Topics
 
 | Artboard | Content |
 | --- | --- |
-| `00 Overview` | System name at 56px, one line on its purpose, one paragraph saying this page is the source of truth |
-| `01 Color roles` | One swatch per role, 120px tall, then role name, token, value, one usage line |
-| `02 Color ramps` | One row per hue, one cell per step. A dot and the role name mark which step each role uses. Cell text flips between white and ink by luminance |
-| `03 Typography` | A specimen card per family (large Aa, alphabet, digits, each weight), then a scale table: token, size, line height, tracking, live sample |
-| `04 Spacing and radius` | Spacing bars at 6x with token and value, radius swatches with token and value |
-| `05 Logo` | Variants per surface, clear space, minimum sizes, placements. Skip when there is no asset |
-| `06 Font stacks` | Role token, family, CSS stack, source and license, weights, usage |
+| `00 Overview` | System name, purpose, and source authority. No review commentary |
+| `01 Color roles` | Roles grouped by usage, with exact token references and values in each shipped theme |
+| `02 Color ramps` | Existing ramp steps and labels showing the aliases actually used by roles |
+| `03 Typography` | Real families/weights, scale, and matched heading/body/control/numeral examples |
+| `04 Spacing and radius` | Source steps and usage examples, including nested surfaces |
+| `05 Logo` | Real assets, variants, clear space, minimum sizes, and placements |
+| `06 Font stacks` | Role, family, fallback stack, source, license when known, weights, and usage |
 
-Add `Shadows`, `Motion` or `Opacity` only when the token source defines them.
+Only add shadows, motion, or other topics when the system defines them. Do not infer a license, clear-space rule, or minimum size without source guidance; ask or mark it unknown in chat. No asset means no invented logo unless a placeholder was requested.
 
-## Notes for agents
+## Usage notes
 
-Last child of each artboard except the overview. Layer name `Instruction notes for agents`.
+Each topic can end with `Instruction notes for agents`: plain text under a quiet divider, one rule per line, short enough to scan. No fill, badge, chip, or arrows. Notes describe real decisions, not a generic design manifesto.
 
-- A 1px top rule in `var(--hairline)`, 24px padding above, 720px wide
-- Heading "Notes for agents", 13px, weight 600, ink
-- Two or three lines, 14px, muted, one rule per line, no bullets or arrows
-- No fill, no border box, no chip
+Examples depend on the actual system: which surface belongs to a panel, which badge variant is the default, where mono text is used, or which logo variant fits a dark header. Source these from code, documentation, or explicit user decisions. Preserve user edits to these notes during sync.
 
-Each rule is something that changes what an agent draws. Seed rules:
+These notes are part of the maintained system, not findings on a review sheet.
 
-- Colors: components use roles, never ramp steps or hex values. A missing role is added here first.
-- Ramps: a role with no dot has drifted from its ramp.
-- Type: call `get_font_family_info` first. Sizes come from the scale.
-- Spacing: gaps inside a group use steps 1 to 3, between groups 6 to 8.
-- Logo: never recolor or redraw. Clone it. Under the minimum height, use the mark alone.
-- Fonts: mockups use the first family. Code uses the whole stack.
+## Updating
 
-## Sizes
+Follow `../../paper-ds-manage/references/versioning.md`. Snapshot current tokens and artifacts before a shared change. Update only affected displays and record new source evidence. Mark dependent active subjects for review; do not claim all components were adopted or implemented because Foundations changed.
 
-Never below 12px, anywhere on the page. Tiny mono captions at 11px read as noise, not detail.
-
-## Roles alias ramps
-
-A role's value is `var(--ramp-step)`, not a copy of the hex. Without aliasing, a ramp edit leaves roles stale and the dots on `02 Color ramps` lie.
-
-## Hairlines
-
-In light mode the border token is translucent black at 8%. A solid grey looks pasted on. In dark mode it is a solid grey, because a translucent white border glows.
+Keep imported token values and aliases exact. Raw-valued roles are not automatically drift; only claim drift when they differ from the selected source. Proposed palette or alias improvements need their own comparison and approval.

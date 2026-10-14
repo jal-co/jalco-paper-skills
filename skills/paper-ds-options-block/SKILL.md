@@ -1,6 +1,8 @@
 ---
 name: paper-ds-options-block
 description: Draw an option sheet for a block, meaning a section built from several components such as a pricing table, settings card, empty state, onboarding step or data list. Called by paper-ds-options when the decision is about a section. Use directly when the user asks for options for a section of a page.
+metadata:
+  version: "0.2.0"
 ---
 
 # Options for a block

@@ -1,6 +1,8 @@
 ---
 name: paper-ds-options-component
 description: Draw an option sheet for a single component, such as a badge, tile, toast, input or menu, using the user's design system. Called by paper-ds-options when the decision is about one component. Use directly when the user asks for variants of one component.
+metadata:
+  version: "0.2.0"
 ---
 
 # Options for a component

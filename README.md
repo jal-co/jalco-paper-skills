@@ -1,14 +1,27 @@
-# Paper design system skills
+# Manage a design system and iterate on components with Paper
 
-Skills for working with a design system in [Paper](https://paper.design) alongside an agent. Bring in tokens and components, organize the file, explore alternatives, and prepare designs for review.
+Skills that encode an ongoing way of working in [Paper](https://paper.design): keep the real system available, start from an actual component, compare what matters, refine selected nodes, verify the result in context, and fold approved decisions back into the system and code.
 
-[Read the illustrated guide](docs/usage.md)
+[Read the illustrated workflow](docs/usage.md)
+
+[Versioning the work](docs/versioning.md)
 
 ![Six stat tile directions shown in light and dark](docs/images/stat-tile-options.jpg)
 
+## The loop
+
+1. **Maintain the system.** Connect source tokens, fonts, logos, component recipes, and usage rules. Keep Paper aligned without erasing intentional canvas edits.
+2. **Start from something real.** Read the component, its actual content and states, current revision, and neighboring UI.
+3. **Compare the decision.** Structures need directions. A revision needs Current/Proposed. Behavior needs states, widths, and real content.
+4. **Iterate together.** The user selects nodes and edits the canvas. The agent reads those edits and changes only the selected work.
+5. **Verify in context.** Check survivors in the real screen, supported themes, relevant states, and real widths.
+6. **Land the decision.** Adopt an explicitly approved revision, implement when requested, verify fidelity, and update the canonical component and its usage guidance.
+
+Setup happens once. The loop continues.
+
 ## Install
 
-From a local checkout:
+From this checkout:
 
 ```bash
 npx skills add . --skill '*'
@@ -20,63 +33,63 @@ From GitHub:
 npx skills add jal-co/jalco-paper-skills --skill '*'
 ```
 
-If the repository is private, your Git credentials must have access.
+Install the whole set because skills load shared references. A private repository requires Git access. `--list` checks discovery without installing. See the [skills CLI](https://github.com/vercel-labs/skills) for agent selection and global installation.
 
-Install the whole set. Skills call one another and use references packaged with the other skills. Installing one alone may leave those references unavailable.
+Connect the agent to the Paper MCP separately. Give it access to the project's source and assets. Figma import requires a Figma MCP. Mobbin is optional.
 
-Use `--list` to see the available skills without installing them. See the [skills CLI](https://github.com/vercel-labs/skills) for agent selection and global installation.
+## Start working
 
-## Before you start
+> Use paper-ds-manage for our Notice component. Read the current implementation and my selected Paper nodes. Preserve my edits, compare only what needs a decision, and show the survivors in context.
 
-- Connect your agent to the Paper MCP and open the file you want to work in.
-- Give it access to the project's tokens, components, and logo assets.
-- For Figma import, connect a Figma MCP and provide the file or node URL.
-- Mobbin is optional. Existing Paper designs, screenshots, or the content itself can supply references.
+For a first connection:
 
-These are instructions for an agent, not a plugin that adds controls to Paper. Installing the skills does not connect the MCP servers.
+> Use paper-ds-setup for this project and my Paper file. We ship dark mode only. Use our real tokens and logo, and keep the sheets compact.
 
-## Start here
+After feedback:
 
-> Use paper-ds-setup to connect this project's design system to my Paper file. The product ships dark mode only. Ask me about the sheet defaults before drawing.
+> Use paper-ds-iterate on these two nodes. Keep my spacing changes, replace the chip with our actual Badge, and test the long message in context.
 
-Setup creates Foundations and TEMPLATE pages and a `paper-ds.json` file in your project. The manifest records the Paper file, token source, themes, and imported components.
+To finish:
 
-Then ask for work:
-
-> Use paper-ds-options to show six alternatives for our inline notice. Use its real labels and our existing components.
-
-The agent chooses the comparison before drawing. A revision gets Current/Proposed; a behavior check gets states or real widths; an exploration gets distinct directions. See [choosing a comparison](docs/usage.md#choose-the-comparison).
-
-Or review one thing:
-
-> Use paper-ds-review to review this button. Show its long-label and disabled states in context. Keep findings in chat, not on the sheet.
+> Adopt Notice r3 with paper-ds-land and implement it in the existing component. Verify its real states and dark theme. Do not push or publish anything.
 
 ## Skills
 
-| Skill | Use it for |
+| Skill | Its part of the loop |
 | --- | --- |
-| [paper-ds-setup](docs/usage.md#paper-ds-setup) | Connect a project and set up Foundations and TEMPLATE |
-| [paper-ds-tokens](docs/usage.md#paper-ds-tokens) | Sync tokens, compare drift, or generate a new set |
-| [paper-ds-components](docs/usage.md#paper-ds-components) | Import component variants and states |
-| [paper-ds-pages](docs/usage.md#paper-ds-pages) | Organize pages, name layers, and audit an existing file |
-| [paper-ds-options](docs/usage.md#paper-ds-options) | Choose the right sheet and run an exploration |
-| [paper-ds-options-component](docs/usage.md#paper-ds-options-component) | Alternatives for one component |
-| [paper-ds-options-block](docs/usage.md#paper-ds-options-block) | Alternatives for a section made from components |
-| [paper-ds-options-page](docs/usage.md#paper-ds-options-page) | Whole-page directions |
-| [paper-ds-review](docs/usage.md#paper-ds-review) | Review one design without generating alternatives |
+| [paper-ds-manage](docs/usage.md#paper-ds-manage) | Entry point for ongoing work and routing |
+| [paper-ds-setup](docs/usage.md#paper-ds-setup) | Connect sources and create the maintained workspace |
+| [paper-ds-tokens](docs/usage.md#paper-ds-tokens) | Compare drift and snapshot shared token changes |
+| [paper-ds-components](docs/usage.md#paper-ds-components) | Import or refresh actual component baselines |
+| [paper-ds-options](docs/usage.md#paper-ds-options) | Choose and draw the right comparison |
+| [paper-ds-options-component](docs/usage.md#paper-ds-options-component) | Component-sized comparisons |
+| [paper-ds-options-block](docs/usage.md#paper-ds-options-block) | Section-sized comparisons |
+| [paper-ds-options-page](docs/usage.md#paper-ds-options-page) | Page and journey comparisons |
+| [paper-ds-iterate](docs/usage.md#paper-ds-iterate) | Bounded iterations after feedback |
+| [paper-ds-review](docs/usage.md#paper-ds-review) | Verify the selected revision in context |
+| [paper-ds-land](docs/usage.md#paper-ds-land) | Adopt approved artwork and verify requested code changes |
+| [paper-ds-pages](docs/usage.md#paper-ds-pages) | Keep pages, names, canonical nodes, and archives useful |
 | [paper-ds-canvas](docs/usage.md#paper-ds-canvas) | Shared Paper tool and rendering rules |
 
-## Customize the sheets
+## Versions
 
-Edit a frame on TEMPLATE to change the look of future sheets. Spacing, type, and radii reference your system's tokens. Layers named `Optional Logo`, `Optional Trade-off`, and `Optional Notes` can be removed when they are not needed.
+Package version **0.2.0 is unreleased**. `VERSION`, skill metadata, and [CHANGELOG.md](CHANGELOG.md) track the package; they do not claim a Git tag exists.
 
-Reviews have no drawn comments, pins, or findings. The design stays on the sheet; critique stays in chat or Paper's native comments.
+Each project has a schema-versioned `paper-ds.json`. Each subject has its own numbered revisions, source evidence, saved artwork and token snapshots, approval status, and implemented revision. A selected draft is not approved; an approved design is not implemented.
 
-## Status
+Historical frames still follow live tokens. Saved snapshots and screenshots preserve what a revision actually looked like. See [versioning](docs/versioning.md).
 
-The screenshots come from a sample system called Ledger. The Foundations, templates, and stat tile exploration were built in Paper while developing these skills. Empty stages in the template screenshots are intentional.
+## Customize without losing your work
 
-Code imports, Figma imports, reverse token sync, and dark-only setup still need end-to-end testing. The screenshots demonstrate layouts, not completed imports from an external system.
+Edit TEMPLATE frames to change future sheets. Spacing, type, and radii reference your own system. Optional slots can be removed. The agent preserves your edits and checkpoints them before another round replaces them.
+
+Review sheets show the subject only. Critique stays in chat or native comments, never in drawn cards, pins, or finding lists. Private demo links are not included.
+
+## Verification status
+
+The screenshots show an invented sample system called Ledger and the layouts developed in Paper. Empty template stages are intentional. They are not proof of a completed external import or implementation.
+
+The lifecycle and versioning instructions still need end-to-end testing on a real project, including Figma import, reverse sync, single-theme setup, historical restore, and the Paper-to-code verification loop. These are agent instructions, not a plugin that enforces the workflow automatically.
 
 ## License
 

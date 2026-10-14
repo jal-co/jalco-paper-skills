@@ -7,17 +7,19 @@ Every layer has a name an agent can search for. A layer left as `Frame`, `Rectan
 | Layer | Name |
 | --- | --- |
 | Foundations artboard | `NN Title` (`01 Color roles`) |
-| Sheet artboard | `Sheet <subject>` (`Sheet Stat tile`) |
+| Sheet artboard | `<subject> r<N> Round <N>` (`Notice r3 Round 2`); `Sheet Component` stays the template name |
 | Option | `Option NN <idea>` (`Option 02 Trend as field`) |
 | Stage | `Stage light (Render)`, `Stage dark (Render)` |
 | Drawn component inside a stage | `<idea> tile`, or the component name and props (`Badge warning subtle sm`) |
 | Slot | `Optional <name>` (`Optional Logo`) |
-| Agent notes | `Instruction notes for agents` |
+| Agent notes | `Instruction notes for agents`, on Foundations and canonical component guidance only |
 | Color swatch | `Swatch`, inside a frame named for the role or step |
 | Logo shapes | `Mark` |
 | Chart shapes | `Chart` |
 
-Separate words with spaces. Never use `·`, `/` or `|` in names, since they read as hierarchy in the layer panel.
+Separate words with spaces. Do not use decorative separators, slashes, or pipes in names; they read as hierarchy in the layer panel.
+
+A revision suffix identifies artwork, not approval or implementation. Keep the canonical name stable, and record statuses and ancestry in the manifest. No large version or comment panel belongs on the sheet.
 
 After every sheet, walk the tree with `get_children` and rename any layer still called `Frame`, `Rectangle`, `Text`, `SVG` or `Path`. Name it by its parent: a rectangle in a role row is `Swatch`, a frame in a stage is the tile.
 

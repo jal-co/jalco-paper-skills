@@ -1,226 +1,187 @@
-# Using the Paper skills
+# Manage the system, then iterate on real components
 
 [Back to the README](../README.md)
 
-Use the skill name in a request to your agent. A slash command may also be available, depending on the agent. Each example below supplies enough context to start; substitute your own component, source path, or Paper URL.
+The workflow is a loop: maintain the real system, start with an actual component, compare the decision, iterate on selected nodes, verify in context, and adopt the approved result. These skills divide up that work without replacing the way you already use Paper.
 
-## A typical workflow
+Use a skill's name in the request to your agent. Examples below use illustrative source paths and component names, not a shared demo-file link.
 
-1. Run `paper-ds-setup` once to connect the project and choose themes, logo, and sheet defaults.
-2. Run `paper-ds-components` for the components the next task will use.
-3. Run `paper-ds-options` to compare alternatives, or `paper-ds-review` to inspect one design.
-4. Give feedback by option name or node. Refine the survivors in context.
-5. Use `paper-ds-tokens` when code tokens change, and `paper-ds-pages` when the file needs organizing.
+## paper-ds-manage
 
-You do not need to import an entire library before exploring one component. Start with the pieces that task needs.
+[Skill](../skills/paper-ds-manage/SKILL.md)
+
+The entry point for ongoing work. It reads the manifest, source, revisions, and selected nodes before choosing the next step. It does not rerun setup just because a new session started.
+
+> Use paper-ds-manage on Notice. Read its source and my selected Paper nodes before drawing. I want to keep the structure but make it work with longer messages.
+
+The request goes to focused iteration and content checks, not a new six-option exploration.
 
 ## paper-ds-setup
 
-[Skill instructions](../skills/paper-ds-setup/SKILL.md)
+[Skill](../skills/paper-ds-setup/SKILL.md)
 
-Connects the project to a Paper file and builds its Foundations and TEMPLATE pages. It asks about supported themes, logo assets, numbering, stage background, and optional slots before drawing.
+Connect code or Figma, supported themes, fonts, logo assets, and editable sheet defaults. Setup creates or reconciles Foundations and TEMPLATE and writes `paper-ds.json` with schema version 2.
 
-> Use paper-ds-setup for this repo and my open Paper file. Tokens are in src/theme.css. We ship dark mode only, and the logo is in public/brand.svg. Keep the sheets compact.
+> Connect this repo to my Paper file. Tokens are in src/theme.css, components are in src/components, and we ship dark mode only. Use public/brand.svg for the logo.
 
-Foundations gives each topic its own artboard: color roles, ramps, typography, spacing and radius, logo, and font stacks. Notes on these artboards tell agents how to use the system. They are separate from review findings.
+The agent reuses existing pages and asks before reconciling them. No real tokens or logo means ask about generation or omission, not substitute the sample system.
 
-![The sample Foundations color roles, grouped by purpose in light and dark](images/color-roles.jpg)
+![Source roles grouped by use in light and dark](images/color-roles.jpg)
 
-Logo artboards show available variants and placements. The logo slot in a sheet's header uses the supplied asset, not a newly invented mark.
+![The sample logo across surfaces and placements](images/logo.jpg)
 
-![The sample logo across surfaces and product placements](images/logo.jpg)
-
-Setup writes `paper-ds.json` in the project. Keep it with the project so later sessions can locate the file, token source, and component nodes.
+Notes under Foundations artboards explain usage. They are editable system guidance, not review comments. Setup asks the user to lock finished artboards manually when wanted; Paper's MCP cannot lock them.
 
 ## paper-ds-tokens
 
-[Skill instructions](../skills/paper-ds-tokens/SKILL.md)
+[Skill](../skills/paper-ds-tokens/SKILL.md)
 
-Use this when tokens change or you need to compare code with Paper. The default direction is code to Paper. Ask explicitly to pull Paper edits back into code.
+Keep the selected source and Paper aligned. Before a shared change, save the old tokens. After verification, save the new snapshot and mark affected components for review. Source values and aliases stay exact.
 
-> Use paper-ds-tokens to compare src/theme.css with Paper. Show missing and changed tokens, then sync the code values into Paper. Leave Paper-only tokens alone.
+> Compare src/theme.css with Paper. Show conflicts with my canvas edits before syncing. Leave Paper-only tokens alone.
 
-For a project without tokens:
+A sync does not approve or implement every affected component. A pull back into code must be requested explicitly.
 
-> Use paper-ds-tokens to propose a new system. Show the palette before writing it to code or Paper.
+![Existing ramps with role mappings](images/color-ramps.jpg)
 
-Roles point to ramp steps where the system defines that relationship. The Foundations ramp display makes those mappings visible.
+![Families, weights, and the sample type scale](images/typography.jpg)
 
-![Neutral, blue, pink, green, amber, and red ramps in the sample system](images/color-ramps.jpg)
-
-Font families, type sizes, line heights, and tracking belong to the same system. The type display shows the families and scale together.
-
-![Instrument Sans and Geist Mono specimens with the sample type scale](images/typography.jpg)
+For a new system, ask for a proposed palette and type scale first. That is a separate task from importing an existing one.
 
 ## paper-ds-components
 
-[Skill instructions](../skills/paper-ds-components/SKILL.md)
+[Skill](../skills/paper-ds-components/SKILL.md)
 
-Brings components into Paper as reusable instances. It reads variants, sizes, and states from source and stories, rather than drawing a similar-looking substitute.
+Bring in actual recipes, props, states, and usage guidance from source or Figma. Import only what the task needs and save a baseline revision. Refreshing a component does not erase active drafts or user edits.
 
-> Use paper-ds-components to bring in Button, Badge, and Notice from src/components. Use the stories for real content and states. Do not import the rest of the library yet.
+> Bring in Notice and Badge from src/components. Use our stories for real content and states. Preserve the existing Notice exploration.
 
-The Components page gets one artboard per component, with a variant/size matrix and relevant states. Instances have names such as `Badge warning subtle sm`. Later sheets clone those instances.
+Instances get names such as `Badge warning subtle sm` so later work can clone the actual component. Unsupported effects are recorded as divergences. An import is not evidence that a proposed design was implemented.
 
-The manifest records the source file and Paper node. Unsupported effects are recorded as divergences rather than silently treated as exact copies. There is no imported component matrix in the demo screenshots yet.
-
-### Starting from Figma
-
-Connect a Figma MCP and provide the system or component URL:
-
-> Use paper-ds-components to bring these Figma button variants into Paper. Preserve their names and resolve variables before drawing.
-
-The [Figma reference](../skills/paper-ds-options/references/figma.md) describes the import procedure. Import only the components or frames needed for the task. This path still needs an end-to-end test.
-
-## paper-ds-pages
-
-[Skill instructions](../skills/paper-ds-pages/SKILL.md)
-
-Organizes a file and audits existing pages before proposing moves.
-
-> Use paper-ds-pages to audit this file. Propose page moves and layer renames before changing my organization.
-
-The intended page order is:
-
-```text
-TEMPLATE
-Foundations
-Components
-Blocks
-Explorations, one page per subject
-Archive
-```
-
-Use subject names such as `Billing page` or `Notice`. Structural layers get readable names: `Header row`, `Option 01 Usage first`, `Stage dark (Render)`, and `Optional Logo`. Names use spaces, not decorative separators.
-
-Paper's MCP cannot lock layers. Lock finished Foundations and TEMPLATE artboards manually in Paper. Agents should clone from them and ask before changing them. See the [naming and locking reference](../skills/paper-ds-pages/references/naming.md).
+For Figma, connect its MCP and supply the requested component URL. The [import reference](../skills/paper-ds-options/references/figma.md) preserves source values and names. That path still needs end-to-end testing.
 
 ## paper-ds-options
 
-[Skill instructions](../skills/paper-ds-options/SKILL.md)
+[Skill](../skills/paper-ds-options/SKILL.md)
 
-The main exploration skill. It chooses a component, block, or page sheet, pins the content, lists distinct structural ideas, and draws with the project's system.
+Start with the current baseline and decide what comparison is useful before choosing a template.
 
-> Use paper-ds-options for six directions for our revenue tile. Keep the same data in every option, reuse the existing components, and recommend a direction after checking it in context.
+> Explore three structures for Notice with the same warning message and action. Use our real Badge and preserve the current version for comparison.
 
-References are optional. With Mobbin connected, the agent can look for structural precedents. Otherwise it can use existing Paper pages, supplied images, Figma references, or reason from the content itself. You do not need Mobbin to use these skills.
+![A populated exploration with six sample directions in both themes](images/stat-tile-options.jpg)
 
-![A completed exploration of six stat tile directions, paired light and dark](images/stat-tile-options.jpg)
+The screenshot shows a structural exploration, not a rule that every request needs six candidates. References can come from Mobbin, Figma, existing Paper pages, or supplied images. No reference service is required.
 
-This example shows a populated sheet. The templates below have empty stages because they are starting frames, not finished designs.
+### Choose the comparison
 
-After feedback, ask for a narrower round:
-
-> Keep options 01 and 04. Show both inside our real dashboard, with a long value and an empty state. Leave the first round intact.
-
-## Choose the comparison
-
-The agent first identifies the decision, then picks a sheet. A component does not always need a grid of alternatives.
-
-| You want to know | Use |
+| Decision | Comparison |
 | --- | --- |
-| Which structure is better | Different directions with the same content |
-| Whether a revision improves the current UI | Current and Proposed side by side |
-| Whether a component handles its states | A state matrix, not extra directions |
-| Whether content breaks it | Normal, long, empty, or error examples of the same design |
-| Whether both themes work | Light/dark pairs, only for themes the product ships |
-| Whether it reflows correctly | The same design at real container widths |
-| Whether an icon or footer is needed | With and Without that one slot |
-| Whether it fits the product | The design inside its real surrounding screen |
-| Which colors or fonts work | Matched foundation specimens, including text on surfaces and realistic copy |
-| Whether a journey works | Ordered steps for the same goal |
-| Whether one design is ready | A single-subject review |
+| Choose a structure | Distinct directions with fixed content |
+| Improve a revision | Actual Current and Proposed |
+| Check behavior | Actual states, not extra directions |
+| Check content resilience | Normal, long, empty, or error content |
+| Check theme fidelity | Only the shipped themes |
+| Check responsive behavior | Reflow at real container widths |
+| Check an optional part | With and Without that one part |
+| Check fit with the product | The same subject inside its real surrounding screen |
+| Choose colors or fonts | Matched specimens and text-on-surface checks |
+| Explore a journey | Complete ordered steps for one goal |
+| Verify one subject | A single-subject review |
 
-The [comparison guide](../skills/paper-ds-options/references/comparisons.md) gives the layout and fixed variables for each. Templates supply the look; they do not dictate how many candidates to invent.
+The [comparison guide](../skills/paper-ds-options/references/comparisons.md) defines which variables stay fixed. Template capacity is not a candidate count.
 
 ## paper-ds-options-component
 
-[Skill instructions](../skills/paper-ds-options-component/SKILL.md)
+[Skill](../skills/paper-ds-options-component/SKILL.md)
 
-Alternatives for one component: a button, badge, notice, tile, or menu.
+Component-sized comparisons, using real pixel sizes. Stages grow when the subject needs more space. Relevant states appear only when they affect the decision.
 
-> Use paper-ds-options-component for our inline notice. Compare four structures using the same warning message and action. Reuse our actual Badge.
+> Compare Current and Proposed padding on this button with identical text and width. Do not invent other button styles.
 
-The starting sheet has three options across. Each stage shows the component at its real size. Add only the states that affect the choice, and grow the stage when the component needs more room.
-
-![Compact component template with paired stages, logo slot, and optional feedback slots](images/component-template.jpg)
+![Compact component template](images/component-template.jpg)
 
 ## paper-ds-options-block
 
-[Skill instructions](../skills/paper-ds-options-block/SKILL.md)
+[Skill](../skills/paper-ds-options-block/SKILL.md)
 
-Alternatives for a section made from components: a pricing table, settings panel, empty state, or onboarding section.
+Section-sized comparisons made from real components. Compare grouping, order, action placement, or the one optional slot in question.
 
-> Use paper-ds-options-block for our plan comparison section. Keep the plans, prices, and labels fixed. Explore a table and a stacked layout using our existing cards and buttons.
+> Compare our pricing block with and without the footer. Keep the plans, data, and card components fixed.
 
-Blocks compare grouping, order, and action placement. The template starts with two options across. Optional parts stay optional, so a footer or icon is not required to make the layout work.
-
-![Block template with two options and light/dark stages](images/block-template.jpg)
+![Block template with paired theme stages](images/block-template.jpg)
 
 ## paper-ds-options-page
 
-[Skill instructions](../skills/paper-ds-options-page/SKILL.md)
+[Skill](../skills/paper-ds-options-page/SKILL.md)
 
-Whole-page directions. Each direction should change what the page leads with, not just rearrange a few cards.
+Page directions or ordered flow steps. Keep the same scenario and actual shell across structural directions. A state or revision check retains the page direction instead.
 
-> Use paper-ds-options-page for Billing. Scenario: free plan, two serverless projects, no card on file. Compare usage-first, plan-first, and projects-first using the real billing labels and data.
+> Compare usage-first and projects-first Billing for a free plan with two projects and no card. Keep the existing sidebar and real billing labels.
 
-Pin one scenario per sheet. If an empty account needs a different layout, give it its own sheet. Reuse the same shell across directions so the comparison stays about the page content.
+![Page template](images/page-template.jpg)
 
-![Page template with three directions, each paired light and dark](images/page-template.jpg)
+## paper-ds-iterate
+
+[Skill](../skills/paper-ds-iterate/SKILL.md)
+
+Continue from feedback and the user's selected nodes. The agent reads your edits before changing anything, captures the starting point, and keeps the next round bounded.
+
+> Keep these two nodes. Preserve my padding changes, use the actual Badge, and show the long error inside our settings page.
+
+Rejected directions are not regenerated. A requested API or token exception is reported as a proposal, not silently added. Drafts record their parent revision so you can see what changed.
 
 ## paper-ds-review
 
-[Skill instructions](../skills/paper-ds-review/SKILL.md)
+[Skill](../skills/paper-ds-review/SKILL.md)
 
-Inspect one existing design without generating alternatives.
+Verify the selected revision against its real system, states, themes, widths, and neighboring UI. Reuse an adequate existing display rather than always making a new sheet.
 
-> Use paper-ds-review for this Notice node. Show its long-message and error states and place it in the Agent Builder screen. Return findings in chat. Do not draw comments or pins on the sheet.
+> Review Notice r3 in the real settings page. Check its long-message and error states in dark mode. Findings belong in chat.
 
-The sheet holds only the subject, its relevant states, and context. Remove the states strip when it adds nothing. Remove the in-context stage when reviewing a whole screen.
+![Review template with focus, states, and context only](images/review-template.jpg)
 
-![Single-component review template with focus, states, and context, without comments or pins](images/review-template.jpg)
+There are no drawn comments, pins, or findings. Reviews record the examined revision, token snapshot, completed checks, and unresolved problems. A clean review is not user approval or proof of implementation. Native comment actions need explicit permission.
 
-Findings belong in the reply, not on the design. Existing native Paper comments can be read as review input. Changing or resolving those threads needs permission.
+## paper-ds-land
+
+[Skill](../skills/paper-ds-land/SKILL.md)
+
+Close the loop. Adopt a specifically approved revision into the maintained system and implement it only when requested. Keep design approval and code verification separate.
+
+> Adopt Notice r3 and implement it in our existing Notice component. Update its stories and usage guidance. Verify the real states and compare screenshots with Paper. Do not push or deploy.
+
+The agent captures the previous canonical version, updates the approved artwork and guidance, reads direct Paper values for code, and runs the project's checks and visual comparison. Failed checks or unresolved fidelity differences leave implementation incomplete.
+
+For design-only work:
+
+> Adopt Notice r3 in Paper only. Leave the implementation unchanged and record the remaining drift.
+
+## paper-ds-pages
+
+[Skill](../skills/paper-ds-pages/SKILL.md)
+
+Keep the file navigable without losing history. The agent proposes moves, preserves the user's organization, and updates manifest references after approved changes.
+
+> Organize the Notice rounds and archive the rejected ones. Preserve their snapshots and my page grouping.
+
+Canonical component names stay stable. Explorations use short names such as `Notice r3 Round 2`. Revisions live in the manifest, not big metadata panels on the canvas. See [naming and locking](../skills/paper-ds-pages/references/naming.md).
 
 ## paper-ds-canvas
 
-[Skill instructions](../skills/paper-ds-canvas/SKILL.md)
+[Skill](../skills/paper-ds-canvas/SKILL.md)
 
-Shared drawing rules loaded by the other skills. You normally do not need to invoke it yourself.
+Shared drawing and checkpoint rules. Other skills load it before using Paper. It handles file identity, fonts, token references, transparent overview frames, screenshot lag, and rendering limits.
 
-> Use paper-ds-canvas to investigate why this artboard is blank and check whether the screenshot is stale before rewriting anything.
+> Check whether this screenshot is stale before rewriting the component. Read the node and token snapshot first.
 
-It covers token references, fonts, node IDs, screenshot checks, transparent overview artboards, and rendering limits. If Paper cannot reproduce an effect, the agent records that difference.
+## Templates and themes
 
-## Customize your templates
+Edit TEMPLATE directly to change future sheets. Spacing, type, and radii reference your DS tokens. Optional logo, trade-off, and feedback slots can be removed. Critique stays off the canvas, and review sheets have no feedback slots.
 
-Edit the TEMPLATE frames directly. The next sheet inherits those edits; existing sheets do not change automatically.
+One-theme systems use one stage per option. A dark-only `--color-ground` is dark. Two-theme systems also have `--color-dark-*` roles. Do not add empty light stages to a dark-only project.
 
-- Spacing, padding, type, and radii reference your DS tokens.
-- Stage dimensions are starting sizes. Content can require larger stages.
-- `Optional Logo` is the system's logo in the header.
-- `Optional Trade-off` is a short cost beneath an idea's pitch.
-- `Optional Notes` is a removable feedback slot on option sheets. Review sheets have no such slot.
+## Preserve the lineage
 
-Delete an optional layer from a clone for one task, or from the template to remove it from future sheets. Do not pad a sheet with placeholder commentary.
+Read [versioning](versioning.md). Component revisions, manifest schema, and package releases have different meanings. Current artwork, approved design, and verified implementation are tracked separately. Shared token changes flag affected subjects for review.
 
-## Choose only the themes you ship
-
-Setup records `themes` in the manifest:
-
-| Product | Manifest | Sheet |
-| --- | --- | --- |
-| Light and dark | `["light", "dark"]` | One stage per theme |
-| Dark only | `["dark"]` | One dark stage |
-| Light only | `["light"]` | One light stage |
-
-A single-theme system uses plain role names such as `--color-ground`. A two-theme system also has `--color-dark-ground`. Spacing, type, and radii are shared.
-
-The screenshots show both themes because the sample system has both. A dark-only project should not get an empty light stage.
-
-## Scope of the examples
-
-The screenshots show Ledger, an invented sample system. Its palette, font pairing, and brand are not required. The source Paper file is private and is not linked here.
-
-The demonstrated layouts were built in Paper. External component imports, Figma imports, reverse token sync, and a full single-theme setup still need end-to-end testing. No production-code handoff skill is included yet.
+The screenshots show an invented sample system. New lifecycle instructions still need end-to-end testing on a real project, including restore and code verification. The private source Paper file is not linked.

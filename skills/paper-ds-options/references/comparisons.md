@@ -34,7 +34,8 @@ Choose the comparison before choosing the sheet. Start with the decision the use
 - Change one variable in With/Without and Current/Proposed comparisons. Label the versions plainly.
 - State and responsive checks are not extra design directions. Keep them under their direction or on a separate verification sheet.
 - A responsive frame uses the real available width and reflows content. Enlarging or shrinking a screenshot tests nothing.
-- If current behavior is unavailable, say so. Never invent a Current frame and present it as shipped UI.
+- Current comes from the actual canonical/source baseline, with its revision and token snapshot. Proposed is an unapproved draft until the user adopts it. If current behavior is unavailable, say so; never invent shipped UI.
+- The user can select a node edited outside the last round. Read and checkpoint that edit before comparing it. A surviving option is not automatically approved or implemented.
 - Three strong directions beat six padded-out ones. Six is a template capacity, not a required count.
 - Keep critique in chat. Comparison labels describe the condition; they are not drawn comments, pins, or finding lists.
 

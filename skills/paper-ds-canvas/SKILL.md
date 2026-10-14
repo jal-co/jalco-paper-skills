@@ -1,6 +1,8 @@
 ---
 name: paper-ds-canvas
 description: Shared rules for drawing in Paper through the Paper MCP without breaking things. Load before any paper-ds skill writes to a Paper file, and whenever a Paper screenshot comes back blank, artboards overlap, a node ID lookup returns the wrong ID, or dark mode needs to be drawn.
+metadata:
+  version: "0.2.0"
 ---
 
 # Paper canvas rules
@@ -10,9 +12,9 @@ Every `paper-ds-*` skill loads this first.
 ## Before the first write
 
 1. Call `get_basic_info` with the target `fileId`. Every file-scoped response carries `file.id`. If it is not the file you meant, stop and correct `fileId`. A write to the wrong file cannot be undone.
-2. Read `paper-ds.json` in the project root. It holds the file ID, page map and component node map. If it is missing, load `paper-ds-setup`.
+2. Read `paper-ds.json` and `../paper-ds-manage/references/versioning.md`. During first setup, use its in-progress connection record; do not recursively rerun setup. Outside setup, a missing record needs `paper-ds-setup`.
 3. Call `get_font_family_info` for every family before writing text. A missing weight falls back silently and breaks every measurement after it.
-4. Call `get_tokens` and compare `contentHash` with the manifest. A different hash means tokens changed outside your session. Re-read before trusting names.
+4. Call `get_tokens` and compare `contentHash` with the manifest. A different hash means tokens changed outside your session. Re-read before trusting names. Before overwriting artwork, checkpoint its real source, tokens, and any user's edits. Do not relabel a token-bound live frame as a frozen historical version.
 
 ## Writing
 
@@ -44,7 +46,7 @@ Sync from code with `paper-ds-tokens`, which maps the project's dark selector on
 
 ## Comment color
 
-Every system defines a `comment` role (neon pink by default) with `comment-subtle`, in every theme the product ships. It marks review only: pins, threads, highlights on feedback. Never use it for status, buttons or decoration, and never use pink anywhere else. That exclusivity is why a comment is findable on any screen.
+Reserve a distinct neon-pink `comment` role with `comment-subtle` for review semantics. Keep it documented in Foundations, not drawn as pins, comment cards, or findings on sheets. Do not use it for product status, actions, or decoration.
 
 ## Sharing
 
@@ -73,7 +75,7 @@ Padding set at creation sometimes cannot be changed later (`paddingInline` updat
 - Never set an artboard `top` with `bottom: auto` or `height` to fix a child. `find_nodes` by `position: absolute` also returns the artboard, and updating it pins its height. Select children by ID.
 - `move_nodes` with `parentId: "root"` lifts a frame to the page. The frame loses its width and height. Set both again at once.
 - `setTimeout` is undefined in codemode. Never wait with a timer. Call `get_tree_summary`, then screenshot again.
-- Row width of a sheet is the sum of its option widths plus gaps plus 160px of padding. Compute it, and place the next artboard at `left + width + 80`.
+- Row width is the sum of the actual stage/option widths, resolved DS gaps, and resolved DS padding. Never assume fixed padding. Place the next artboard after that width with a clear gap.
 
 ## What Paper cannot do
 

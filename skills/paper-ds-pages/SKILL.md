@@ -1,6 +1,8 @@
 ---
 name: paper-ds-pages
 description: Organize a Paper file into a predictable page structure for a design system, and audit an existing file for a better one. Use when the user asks to organize or clean up a Paper file, asks whether their pages are laid out well, or after setup creates new pages.
+metadata:
+  version: "0.2.0"
 ---
 
 # Paper DS pages
@@ -23,9 +25,11 @@ Load `paper-ds-canvas` first. Pages are how a person finds anything in a file, a
 
 An exploration page is named for the thing explored (`Billing page`, `Notice`), never `Page 1` or `Options v2`. The `arrow` icon marks the single page the team is working on now, on one page at a time.
 
+Read `references/naming.md` and `../paper-ds-manage/references/versioning.md` before renaming or archiving.
+
 ## Naming
 
-- Artboard: `Sheet <primitive> <subject>` for option sheets. `NN Title` for Foundations. The component name for components.
+- Canonical artboard: the component name. Exploration: `Notice r2 Round 1` or `Review Notice r2`. Keep the subject name stable, append a compact revision suffix, and record ancestry in the manifest instead of a large canvas panel. Foundations use `NN Title`.
 - Option frame: `Option 01 <name>`. Stage frame: `Stage light (Render)` and `Stage dark (Render)`.
 - Slots: `Optional <name>`. Notes: `Instruction notes for agents`.
 - Never leave `Frame` or `Rectangle` on a layer an agent must find.
@@ -35,8 +39,8 @@ An exploration page is named for the thing explored (`Billing page`, `Notice`), 
 1. Call `get_basic_info` and list pages and dividers.
 2. Create missing pages with `create_page`, in the order above. Set names and icons with `update_pages`.
 3. Place dividers and order with `arrange_pages`.
-4. Move finished explorations the user did not pick to `Archive` with `move_nodes`. Never delete them.
-5. Update the page IDs in `paper-ds.json`.
+4. Archive only the rounds the user agreed to retire. Capture their artifact and token snapshots first, move with `move_nodes`, and update their revision status without removing approval or implementation evidence. Never delete history or infer approval from page position.
+5. Update page IDs, exploration mappings, and any canonical node references in `paper-ds.json`. Moving artwork preserves its subject revision number.
 
 ## Audit
 

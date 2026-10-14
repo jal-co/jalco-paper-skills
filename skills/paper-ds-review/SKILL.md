@@ -1,49 +1,34 @@
 ---
 name: paper-ds-review
-description: Review one existing component, block or screen in Paper, drawn with the user's design system, with its states and the screen it ships in. Use when the user asks to review, critique, QA or get feedback on a single component or design instead of exploring options, or asks to show one thing to stakeholders for sign-off.
+description: Verify one real Paper design or revision against its system, states, widths, themes, and actual product context without inventing alternatives. Record the reviewed revision and evidence separately from approval or implementation. Use for review, critique, QA, in-context checks, or stakeholder sign-off of one subject.
+metadata:
+  version: "0.2.0"
 ---
 
-# Paper DS review
+# Check the subject in context
 
-Load `paper-ds-canvas`, then read `paper-ds.json`. A review looks at one thing. Use `paper-ds-options` when the user wants alternatives.
+Load `paper-ds-canvas` and `../paper-ds-manage/references/versioning.md`. Read the exact selected nodes, source, and revision, not just a component name. Existing user edits are part of the subject.
 
-## Select what to show
+Read `../paper-ds-options/references/comparisons.md`. Choose only checks that could change the verdict. A revision uses actual Current and Proposed. A single component may need long content, relevant states, themes, widths, or its surrounding screen. Do not generate alternatives unless asked.
 
-Read `../paper-ds-options/references/comparisons.md`. A review of one subject uses only the checks that could change the verdict: states, long content, shipped themes, real widths, or context. A revision review also includes the actual Current version beside Proposed. Do not generate alternatives unless asked.
+<workflow>
 
-## Sheet
+1. Read source and current artwork. If the selected node is unavailable, ask rather than drawing a substitute. If source and Paper disagree, identify which design is being reviewed.
+2. Capture previously unrecorded artwork or user edits as a baseline or draft checkpoint. Reviewing an unchanged revision does not allocate a new artwork revision.
+3. Clone `Sheet Review` only if a separate review display is needed. Reuse an existing adequate display. Include Focus, relevant States, and In context; remove empty sections and unsupported themes.
+4. Use real content and actual surrounding components. Do not show a 320px screenshot as a responsive 200px rendering. Reflow at the real width.
+5. Check scale values, semantic roles, contrast, content stress, actual states, optional slots, and how the subject fits its neighbors. For behavioral or implementation claims, run applicable checks in the real product. Static Paper screenshots cannot prove keyboard behavior or loading logic.
+6. Record the examined revision and token snapshot, verification evidence, and unresolved findings in the subject's `reviews`. Clear `needsReview` only for the checks completed under current tokens and source; an incomplete verification leaves it true.
+7. Reply with concise findings, each naming the location, problem, and fix. State what was not tested. A clean review is evidence, not user approval or a shipped revision.
 
-Clone `Sheet Review` from TEMPLATE onto the subject's exploration page. Name it `Review <subject>`.
+</workflow>
 
-| Part | Content |
-| --- | --- |
-| `Focus` | The subject at real size, one stage per theme the project uses |
-| `Optional States` | Up to four states: default, long content, empty, error. Swap in loading or disabled when the subject has them |
-| `Optional In context` | The subject inside the real screen it ships in |
+## Comments
 
-Delete `Optional States` when the subject has one state. Delete `Optional In context` when the subject is a whole screen.
+The sheet holds the design only. No drawn comment cards, finding rows, pins, or critique notes. Findings belong in chat.
 
-## Procedure
+Read existing native Paper comments as input when available. Never create, alter, or resolve a thread without explicit permission for that action. Keep private file URLs and review artifacts out of public examples.
 
-1. Find the subject. If it exists as a Paper node, clone it into `Focus`. If it exists only in code, draw it from the code's recipe with `paper-ds-components`. If it exists in neither, stop and ask.
-2. Pin real content and real states from the code or the product.
-3. Draw the in-context stage from the real screen: clone the shell and neighbors from the manifest.
-4. Review it against the Foundations notes and the component's own notes. Check, in this order:
-   - Values not on the scale: spacing, type size, radius
-   - Colors that are not roles, and roles used for the wrong job
-   - Contrast of text roles in each theme
-   - States that break: long text, empty, error
-   - How it sits next to its neighbors in context
-5. Reply with the page URL and the findings as a numbered list: where, what is wrong, the fix, one sentence each.
+## Next step
 
-The sheet shows the subject only. Findings never go on the canvas: no rows, pins or notes. Stakeholders read the design, and the critique lives in chat and in Paper's own comment threads.
-
-## Paper's own comments
-
-The Paper MCP can read comment threads but cannot create them. Before a review, call `list_comment_threads` for the subject's page. Treat each open thread as an input finding and include it in the reply. When a finding is fixed, report it in the reply. Only call `set_comment_thread_status` with the user's explicit permission to resolve that thread.
-
-## Rules
-
-- Review only what was asked. Note other problems in one line at the end of the reply.
-- A finding without a fix is an opinion. Give the fix or drop the finding.
-- Five sharp findings beat fifteen small ones. Order by how much each changes the result.
+Use `paper-ds-iterate` for requested fixes and `paper-ds-land` for a specifically approved revision. Do not automatically change code or canonical artwork as a side effect of review.

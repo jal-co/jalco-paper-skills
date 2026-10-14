@@ -1,6 +1,6 @@
 # TEMPLATE page
 
-Agents clone these frames for every sheet. The user changes how sheets look by editing a frame here.
+Agents clone these frames for every sheet. The user changes how sheets look by editing a frame here. Read those edits before each round; never restore defaults just because the session changed.
 
 ## Built from the system's tokens
 
@@ -60,5 +60,6 @@ Delete a slot from a clone when the task does not need it. Never fill one with f
 
 - Read the frame with `get_jsx` before cloning. If the user changed a frame, the clone keeps the change.
 - Stage fill is a role (`var(--color-surface)`), never a hex.
-- Single-theme products get one stage per option and half-width options.
+- Single-theme products get one stage per option. Compute its width from the remaining stages and resolved gaps; do not blindly halve a width that includes a pair gap.
+- Revisions and statuses live in the manifest. Use a compact revision suffix on cloned sheets, not a metadata panel.
 - Add a new sheet type only when the user asks. Copy the closest one and rename it.

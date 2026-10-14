@@ -1,6 +1,8 @@
 ---
 name: paper-ds-options-page
 description: Draw an option sheet of whole-page directions, such as a billing page, dashboard, settings page or onboarding step, laid out side by side for stakeholders. Called by paper-ds-options when the decision is about a full screen. Use directly when the user asks for page-level directions.
+metadata:
+  version: "0.2.0"
 ---
 
 # Options for a page

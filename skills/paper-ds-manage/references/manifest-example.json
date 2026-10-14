@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "skillsVersion": "0.2.0",
+  "fileId": "YOUR_PAPER_FILE_ID",
+  "authority": {
+    "tokens": "code",
+    "components": "code"
+  },
+  "tokenSource": {
+    "path": "src/theme.css",
+    "kind": "css-vars"
+  },
+  "tokensHash": null,
+  "tokenSnapshot": null,
+  "themes": ["dark"],
+  "componentDir": "src/components",
+  "pages": {
+    "template": null,
+    "foundations": null,
+    "components": null,
+    "blocks": null,
+    "explorations": {},
+    "archive": null
+  },
+  "components": {
+    "Notice": {
+      "node": null,
+      "source": "src/components/Notice.tsx",
+      "currentRevision": null,
+      "implementedRevision": null,
+      "needsReview": true,
+      "revisions": [],
+      "reviews": []
+    }
+  },
+  "subjects": {},
+  "divergences": []
+}
