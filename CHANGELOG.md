@@ -8,6 +8,9 @@
 - Add manifest schema 2, subject revision records, token snapshots, review evidence, and migration from unversioned manifests.
 - Separate design approval from verified implementation and package releases.
 - Preserve existing skill names and compact, token-based templates.
+- Give each canonical component its own page, with Components as an index and separate exploration/review pages. Place new pages in the correct group immediately.
+- Document the source-based shadcn run with 15 component pages, new screenshots, and the Alert r1/r2/r3 example.
+- Record reported OKLCH precision differences during token read-back instead of claiming an exact round trip.
 
 ## Unversioned baseline
 

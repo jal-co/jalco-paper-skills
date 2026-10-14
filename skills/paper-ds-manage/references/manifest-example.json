@@ -18,12 +18,14 @@
     "template": null,
     "foundations": null,
     "components": null,
+    "componentPages": {},
     "blocks": null,
     "explorations": {},
     "archive": null
   },
   "components": {
     "Notice": {
+      "page": null,
       "node": null,
       "source": "src/components/Notice.tsx",
       "currentRevision": null,

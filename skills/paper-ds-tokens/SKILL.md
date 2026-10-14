@@ -23,7 +23,7 @@ Do not overwrite Paper edits merely because code differs. If both changed since 
 2. Show the proposed direction and affected token groups. Preserve Paper-only tokens, including canvas and comment roles. Deletion, renaming, or changing shared semantics needs explicit approval.
 3. Capture the existing tokens and relevant artwork before mutation. Shared tokens can alter canonical and archived nodes, so determine their impact by inspecting references and protect historical screenshots and artwork with their original token snapshot.
 4. Apply the requested sync with `create_tokens` and `set_tokens`, or make the authorized source edits for a pull. Inspect every entry result; a tool call can partially fail.
-5. Read tokens back and verify them against the intended source. For pulls, also run the source's applicable existing checks. If results differ or checks fail, record the failure and stop before declaring a successful snapshot.
+5. Read tokens back and verify them against the intended source using normalized CSS units, not string equality. Record reported precision loss, such as rounded OKLCH hue, as a divergence with the original source preserved; do not claim exact round-trip fidelity or keep resyncing indefinitely. For pulls, also run the source's applicable existing checks. If results differ or checks fail, record the failure and stop before declaring a successful snapshot.
 6. Save the new snapshot, update `tokenSnapshot` and `tokensHash`, refresh affected Foundation displays without erasing usage notes, and mark affected subjects `needsReview`. A sync never silently increments or approves all components.
 
 </workflow>

@@ -6,7 +6,7 @@ Skills that encode an ongoing way of working in [Paper](https://paper.design): k
 
 [Versioning the work](docs/versioning.md)
 
-![Six stat tile directions shown in light and dark](docs/images/stat-tile-options.jpg)
+![Three Alert action-placement comparisons using default shadcn styling in light and dark](docs/images/shadcn-alert-options.jpg)
 
 ## The loop
 
@@ -17,7 +17,7 @@ Skills that encode an ongoing way of working in [Paper](https://paper.design): k
 5. **Verify in context.** Check survivors in the real screen, supported themes, relevant states, and real widths.
 6. **Land the decision.** Adopt an explicitly approved revision, implement when requested, verify fidelity, and update the canonical component and its usage guidance.
 
-Setup happens once. The loop continues.
+Setup happens once. The loop continues. Each canonical component gets its own page; Components is an index, and exploration and review pages stay separate.
 
 ## Install
 
@@ -41,7 +41,7 @@ Connect the agent to the Paper MCP separately. Give it access to the project's s
 
 **Use `paper-ds-manage` by default.** Describe what you want to do; it routes to the right skill. You can also call a focused skill directly.
 
-> Use paper-ds-manage for our Notice component. Read the current implementation and my selected Paper nodes. Preserve my edits, compare only what needs a decision, and show the survivors in context.
+> Use paper-ds-manage for our Alert component. Read the current implementation and my selected Paper nodes. Preserve my edits, compare only what needs a decision, and show the survivors in context.
 
 For a first connection:
 
@@ -53,7 +53,7 @@ After feedback:
 
 To finish:
 
-> Adopt Notice r3 with paper-ds-land and implement it in the existing component. Verify its real states and dark theme. Do not push or publish anything.
+> Adopt Alert r3 with paper-ds-land and implement it in the existing component. Verify its real states and dark theme. Do not push or publish anything.
 
 ## What to use when
 
@@ -73,6 +73,24 @@ You normally do not call the format helpers directly: [component](docs/usage.md#
 
 The usual sequence is **Manage → options → iterate → review → land**. Skip stages the task does not need. Setup happens once; tokens and components get refreshed when needed. Selecting an option does not mark it approved or implemented.
 
+## The shadcn example
+
+The illustrated run uses the default neutral theme and `base-nova` registry recipes. Each of these 15 components has its own page:
+
+**Button, Badge, Input, Textarea, Checkbox, RadioGroup, Switch, Slider, Progress, Tabs, Avatar, Card, Alert, Separator, Skeleton.**
+
+![Compact index of the 15 component pages](docs/images/shadcn-components.jpg)
+
+The page order is TEMPLATE, Foundations, Components index, component pages, exploration/review, then Archive. New pages are placed in their group immediately, not left beside whichever page is active.
+
+The Alert example explains the iteration loop:
+
+- **r1:** imported source baseline
+- **r2:** three action-placement comparisons
+- **r3:** the below-message action, refined for spacing and checked with long content, narrow width, and a billing fixture
+
+These are local design revisions, not official shadcn releases or component variants. r3 is still a draft. The canonical Alert remains r1, and no revision is marked implemented. See [the worked example](docs/usage.md#the-shadcn-worked-example).
+
 ## Versions
 
 Package version **0.2.0 is unreleased**. `VERSION`, skill metadata, and [CHANGELOG.md](CHANGELOG.md) track the package; they do not claim a Git tag exists.
@@ -89,9 +107,9 @@ Review sheets show the subject only. Critique stays in chat or native comments, 
 
 ## Verification status
 
-The screenshots show an invented sample system called Ledger and the layouts developed in Paper. Empty template stages are intentional. They are not proof of a completed external import or implementation.
+The current screenshots show the source-based shadcn run. Registry lookup, static component specimens, revision capture, and layout review were exercised. Empty template stages are intentional. Paper reports rounded OKLCH hue precision; the original source values stay in local snapshots, with that difference recorded.
 
-The lifecycle and versioning instructions still need end-to-end testing on a real project, including Figma import, reverse sync, single-theme setup, historical restore, and the Paper-to-code verification loop. These are agent instructions, not a plugin that enforces the workflow automatically.
+Keyboard behavior, loading behavior, touch hit areas, adoption, and code implementation were not verified. Figma import, reverse sync, single-theme setup, and historical restore also still need end-to-end testing. These are agent instructions, not a plugin that enforces the workflow automatically.
 
 ## License
 

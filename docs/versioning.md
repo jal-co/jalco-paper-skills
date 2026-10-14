@@ -8,7 +8,7 @@ A version should tell you what changed, what the user approved, and whether code
 
 - **Package version** identifies the installed skills. This working release is `0.2.0`, recorded in `VERSION` and each skill's metadata. It is not tagged or published yet.
 - **Manifest schema** identifies the shape of the project's `paper-ds.json`. The new workflow uses schema 2. Older projects need an approved migration, not a reset.
-- **Subject revision** identifies a component, block, or page checkpoint. `Notice r3` and `Button r3` have separate histories. Neither is an npm package release.
+- **Subject revision** identifies a component, block, or page checkpoint. `Alert r3` and `Button r3` have separate histories. Neither is an npm package release.
 
 ## What a revision saves
 
@@ -18,9 +18,21 @@ A record names its parent revision, source path/version when known, Paper node, 
 
 These files can contain private IDs and assets. Keep them under the project's storage policy. Do not publish them as blog examples or copy them into the skills repo.
 
-## Example lifecycle
+## The current Alert example
 
-| Event | Notice record | Canonical Paper revision | Verified code revision |
+- **r1** is the imported baseline with the source action slot.
+- **r2** captures three action-placement comparisons.
+- **r3** carries the below-description action forward with more separation and records long-content, narrow-width, and context checks.
+
+r3 is not an official shadcn release or a new source variant. It is still a local draft. Canonical Paper remains at r1, and the implemented revision remains unknown. Approval and browser/code verification have not happened.
+
+The other 14 components each have their own r1 baseline. Their counters do not advance just because Alert reached r3.
+
+## Possible lifecycle after feedback
+
+This table describes the transitions, not completed work in the example:
+
+| Event | Alert record | Canonical Paper revision | Verified code revision |
 | --- | --- | --- | --- |
 | Import a baseline | r1, baseline captured | r1 | Unknown until verified |
 | Explore a new layout | r2, draft based on r1 | r1 | Unchanged |
@@ -41,7 +53,7 @@ A token sync flags affected subjects for review. It does not manufacture a new a
 
 ## Restore without erasing history
 
-> Restore Notice r1 as a new draft for comparison. Keep the current component and tokens intact.
+> Restore Alert r1 as a new draft for comparison. Keep the current component and tokens intact.
 
 The next available revision is based on r1; counters do not move backward. Approval and code verification must happen again before that restore becomes current or implemented.
 

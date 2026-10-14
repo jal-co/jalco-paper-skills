@@ -16,14 +16,15 @@ Load `paper-ds-canvas` first. Pages are how a person finds anything in a file, a
 | `TEMPLATE` | Sheet frames that options clone from | blueprint |
 | divider | | |
 | `Foundations` | Color, type, spacing, logo, fonts | swatches |
-| `Components` | One artboard per component | table |
+| `Components` | Compact index of component pages | table |
+| One page per component | Canonical baseline, variants, states, and usage for that component | table |
 | `Blocks` | Sections and composites | presentation |
 | divider | | |
 | One page per exploration | Option sheets, named for what they explore | design |
 | divider | | |
 | `Archive` | Options that lost and old rounds | paper |
 
-An exploration page is named for the thing explored (`Billing page`, `Notice`), never `Page 1` or `Options v2`. The `arrow` icon marks the single page the team is working on now, on one page at a time.
+Canonical pages use the exact component name (`Button`, `Alert`). Explorations use a separate name such as `Alert exploration`, and reviews use `Alert review`, so the baseline never gets buried among drafts. Do not use `Page 1` or `Options v2`. The `arrow` icon marks the single page the team is working on now, on one page at a time.
 
 Read `references/naming.md` and `../paper-ds-manage/references/versioning.md` before renaming or archiving.
 
@@ -37,7 +38,7 @@ Read `references/naming.md` and `../paper-ds-manage/references/versioning.md` be
 ## Apply
 
 1. Call `get_basic_info` and list pages and dividers.
-2. Create missing pages with `create_page`, in the order above. Set names and icons with `update_pages`.
+2. Create missing pages with `create_page` and immediately place each into its correct group using a freshly read complete order. Creation inserts beside the active page, not the intended group. Preserve unrelated pages and the user's grouping. Set names and icons with `update_pages`.
 3. Place dividers and order with `arrange_pages`.
 4. Archive only the rounds the user agreed to retire. Capture their artifact and token snapshots first, move with `move_nodes`, and update their revision status without removing approval or implementation evidence. Never delete history or infer approval from page position.
 5. Update page IDs, exploration mappings, and any canonical node references in `paper-ds.json`. Moving artwork preserves its subject revision number.

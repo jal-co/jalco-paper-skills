@@ -12,7 +12,7 @@ There are three different numbers. Never substitute one for another.
 
 Use `schemaVersion: 2` and record the installed package version as `skillsVersion`. Subject revision numbers are integers, local to each subject. `Notice r3` has no relationship to `Button r3` or a library's npm version.
 
-See `manifest-example.json` for the record shape. `authority` records the chosen token and component sources (`code`, `figma`, or `paper`); record null and ask if ownership is unresolved. `components` keeps its existing `node` and `source` fields. Blocks and pages use the same record shape under `subjects`, with `kind` identifying the subject type.
+See `manifest-example.json` for the record shape. `authority` records the chosen token and component sources (`code`, `figma`, or `paper`); record null and ask if ownership is unresolved. `components` keeps its existing `node` and `source` fields and records its canonical `page`. `pages.componentPages` maps component names to their dedicated pages; `pages.components` is the index. Blocks and pages use the same record shape under `subjects`, with `kind` identifying the subject type.
 
 `currentRevision` points at the canonical Paper baseline or approved design. `implementedRevision` points only at a revision verified in code. Both may differ. An unverified import or a design-only project has `implementedRevision: null`.
 
