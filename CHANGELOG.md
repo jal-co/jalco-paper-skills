@@ -1,8 +1,6 @@
 # Changelog
 
-## 0.2.0 (unreleased)
-
-Formal release versioning is pending. Publication to `main` does not create a version tag or release.
+## 0.2.0 (2026-10-14)
 
 - Make ongoing system management the entry point with `paper-ds-manage`.
 - Add `paper-ds-iterate` for bounded feedback on selected nodes and user edits.

@@ -6,7 +6,7 @@ A version should tell you what changed, what the user approved, and whether code
 
 ## Separate the numbers
 
-- **Package version** identifies the installed skills. This working release is `0.2.0`, recorded in `VERSION` and each skill's metadata. It is not tagged or published yet.
+- **Package version** identifies the installed skills. The current release is `0.2.0`, recorded in `VERSION` and each skill's metadata and tagged as `v0.2.0`.
 - **Manifest schema** identifies the shape of the project's `paper-ds.json`. The new workflow uses schema 2. Older projects need an approved migration, not a reset.
 - **Subject revision** identifies a component, block, or page checkpoint. `Alert r3` and `Button r3` have separate histories. Neither is an npm package release.
 
@@ -61,7 +61,7 @@ The next available revision is based on r1; counters do not move backward. Appro
 
 `VERSION`, all skill metadata, and `CHANGELOG.md` agree. A version file is not a release tag. Publishing a tag or release is a separate authorized action.
 
-Formal release versioning is still pending for the work on `main`. The current `0.2.0` remains unreleased until its metadata and release notes are checked and a version tag is explicitly authorized and published.
+[v0.2.0](https://github.com/jal-co/jalco-paper-skills/releases/tag/v0.2.0) is the first tagged release. Changes on `main` after that tag belong to a future release; do not move a published tag to include them.
 
 While the package is pre-1.0, minor versions can add workflows or change the manifest contract. Patch versions fix instructions without changing the contract. Once stable at 1.0, incompatible contracts require a major version.
 

@@ -2,7 +2,7 @@
 
 <a href="LICENSE"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/license-MIT.svg?variant=secondary&amp;size=xs&amp;mode=dark" /><img alt="MIT license" src="https://shieldcn.dev/badge/license-MIT.svg?variant=secondary&amp;size=xs&amp;mode=light" /></picture></a>
 <a href="docs/usage.md"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/skills-13.svg?variant=secondary&amp;size=xs&amp;mode=dark" /><img alt="13 skills" src="https://shieldcn.dev/badge/skills-13.svg?variant=secondary&amp;size=xs&amp;mode=light" /></picture></a>
-<a href="CHANGELOG.md"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/version-0.2.0%20unreleased.svg?variant=secondary&amp;size=xs&amp;mode=dark" /><img alt="Version 0.2.0 unreleased" src="https://shieldcn.dev/badge/version-0.2.0%20unreleased.svg?variant=secondary&amp;size=xs&amp;mode=light" /></picture></a>
+<a href="https://github.com/jal-co/jalco-paper-skills/releases/tag/v0.2.0"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/version-0.2.0.svg?variant=secondary&amp;size=xs&amp;mode=dark" /><img alt="Version 0.2.0" src="https://shieldcn.dev/badge/version-0.2.0.svg?variant=secondary&amp;size=xs&amp;mode=light" /></picture></a>
 
 Skills that encode an ongoing way of working in [Paper](https://paper.design): keep the real system available, start from an actual component, compare what matters, refine selected nodes, verify the result in context, and fold approved decisions back into the system and code.
 
@@ -99,9 +99,7 @@ These are local design revisions, not official shadcn releases or component vari
 
 ## Versions
 
-Package version **0.2.0 is unreleased**. `VERSION`, skill metadata, and [CHANGELOG.md](CHANGELOG.md) track the package; they do not claim a Git tag exists.
-
-**Release versioning is still pending.** Publishing these changes to `main` is not a versioned release. Before releasing, verify that the version metadata and changelog agree, then create an explicitly approved version tag and release notes.
+Current release: **[v0.2.0](https://github.com/jal-co/jalco-paper-skills/releases/tag/v0.2.0)**. `VERSION`, all skill metadata, and [CHANGELOG.md](CHANGELOG.md) identify the same package version. Changes on `main` after this tag are not part of v0.2.0.
 
 Each project has a schema-versioned `paper-ds.json`. Each subject has its own numbered revisions, source evidence, saved artwork and token snapshots, approval status, and implemented revision. A selected draft is not approved; an approved design is not implemented.
 
