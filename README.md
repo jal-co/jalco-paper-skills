@@ -39,7 +39,7 @@ From GitHub:
 npx skills add jal-co/jalco-paper-skills --skill '*'
 ```
 
-Install the whole set because skills load shared references. A private repository requires Git access. `--list` checks discovery without installing. See the [skills CLI](https://github.com/vercel-labs/skills) for agent selection and global installation.
+Install the whole set because skills load shared references. `--list` checks discovery without installing. See the [skills CLI](https://github.com/vercel-labs/skills) for agent selection and global installation.
 
 Connect the agent to the Paper MCP separately. Give it access to the project's source and assets. Figma import requires a Figma MCP. Mobbin is optional.
 
