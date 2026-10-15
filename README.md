@@ -1,5 +1,6 @@
 
 <img width="1600" height="900" alt="LARP AS A DESIGNER IN PAPER Logo (2)" src="https://github.com/user-attachments/assets/d980736d-19c8-4dca-9a6b-c84804339a78" />
+
 # Manage a design system and iterate on components with Paper
 
 <a href="LICENSE"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/license-MIT.svg?variant=secondary&amp;size=xs&amp;mode=dark" /><img alt="MIT license" src="https://shieldcn.dev/badge/license-MIT.svg?variant=secondary&amp;size=xs&amp;mode=light" /></picture></a>
